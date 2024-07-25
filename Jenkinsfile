@@ -2,12 +2,14 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_CREDENTIALS_ID = 'dockerhub-credentials-id'
+        DOCKER_CREDENTIALS_ID = 'docker-hub'
         DOCKERHUB_NAMESPACE = 'mabd117'
         BACKEND_IMAGE = "${DOCKERHUB_NAMESPACE}/library-backend"
         FRONTEND_IMAGE = "${DOCKERHUB_NAMESPACE}/library-frontend"
-        KUBECONFIG_CREDENTIALS_ID = 'kubeconfig-credentials-id'
+        KUBECONFIG_CREDENTIALS_ID = 'k8s'
         K8S_NAMESPACE = 'default'
+        GITHUB_CREDENTIALS_ID = 'github-token'
+        GIT_REPO = 'https://github.com/mabd117/library-management-system.git'
     }
 
     stages {
