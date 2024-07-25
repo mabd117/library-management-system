@@ -13,11 +13,7 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git 'https://github.com/Mabd117/library-management-system.git'
-            }
-        }
+       
         stage('Build Backend Image') {
             steps {
                 script {
