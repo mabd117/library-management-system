@@ -49,6 +49,8 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 withKubeConfig([credentialsId: KUBECONFIG_CREDENTIALS_ID, namespace: K8S_NAMESPACE]) {
+                    sh 'kubectl apply -f backend-deployment.yaml'
+                    sh 'kubectl apply -f frontend-deployment.yaml'
                     sh 'kubectl set image deployment/backend-deployment backend=${BACKEND_IMAGE}:latest'
                     sh 'kubectl set image deployment/frontend-deployment frontend=${FRONTEND_IMAGE}:latest'
                 }
